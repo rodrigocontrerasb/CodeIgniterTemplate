@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Posts_model extends CI_Model {
+class Postmeta_model extends CI_Model {
 
     // Constructor
     public function __construct() {
@@ -12,44 +12,24 @@ class Posts_model extends CI_Model {
     /**
      * Funcion: get_posts   
      * Descripcion: lista los Posts
-     * @param $id_tax
+     * @param --
      * @return $salida
      * @throws --
      * @author Rodrigo Contreras B. <rodrigo.rcb@gmail.com>
      * @version 2016-02-08
      * @since 2016-02-08
      */
-    function get_posts($id_tax) {
+    function get_postmetas($id_post) {
 
         // Include Modelos DB
-        $this->load->model('tables/Posts_table');
+        $this->load->model('tables/Postmeta_table');
 
         // Conexion
         $this->load->model('Conn_model');
         $link = $this->Conn_model->Conexion();
 
         // Consulta
-        //$ssql = "select * from wp_posts where post_status = 'publish' and post_type = 'post' order by id desc";
-
-
-        $ssql = "select 
-            ID, 
-            post_title, 
-            guid,
-            post_content, 
-            post_date, 
-            post_author, 
-            post_modified, 
-            post_name, 
-            wp_term_relationships.object_id, 
-            wp_term_relationships.term_taxonomy_id 
-            from wp_posts 
-            left join wp_term_relationships 
-            on wp_posts.ID = wp_term_relationships.object_id 
-            where post_status = 'publish' 
-            and post_type = 'post' and 
-            term_taxonomy_id = " . $id_tax . " order by id desc";
-
+        $ssql = "SELECT * FROM wp_postmeta where post_id = " . $id_post;
 
         // Ejecucion Consulta
         $result = mysqli_query($link, $ssql);
@@ -60,11 +40,11 @@ class Posts_model extends CI_Model {
         while ($row = mysqli_fetch_assoc($result)) {
 
             // Creacion de Objeto
-            $post = new Posts_table();
-            $post = $this->toPosts($post, $row);
+            $postmeta = new Postmeta_table();
+            $postmeta = $this->toPostmeta($postmeta, $row);
 
             // Agregar al array de salida;
-            $salida[$x] = $post;
+            $salida[$x] = $postmeta;
             $x++;
         }
 
@@ -85,18 +65,18 @@ class Posts_model extends CI_Model {
      * @version 2016-02-24
      * @since 2016-02-24
      */
-    function get_post($id_post) {
+    function get_postmeta($meta_id) {
 
 
         // Include Modelos DB
-        $this->load->model('tables/Posts_table');
+        $this->load->model('tables/Postmeta_table');
 
         // Conexion
         $this->load->model('Conn_model');
         $link = $this->Conn_model->Conexion();
 
         // Consulta
-        $ssql = "select * from wp_posts where ID = " . $id_post . " and post_status = 'publish' and post_type = 'post' order by id desc";
+        $ssql = "SELECT * FROM wp_postmeta where meta_id = " . $meta_id;
 
         // Ejecucion Consulta
         $result = mysqli_query($link, $ssql);
@@ -105,14 +85,14 @@ class Posts_model extends CI_Model {
         $row = mysqli_fetch_assoc($result);
 
         // Creacion de Objeto
-        $post = new Posts_table();
-        $post = $this->toPosts($post, $row);
+        $postmeta = new Postmeta_table();
+        $postmeta = $this->toPostmeta($postmeta, $row);
 
         // Cerrar Conexion
         mysqli_close($link);
 
         // Retorno
-        return $post;
+        return $postmeta;
     }
 
     /**
@@ -125,57 +105,33 @@ class Posts_model extends CI_Model {
      * @version 2016-02-24
      * @since 2016-02-24
      */
-    function toPosts(Posts_table $post, $row) {
+    function toPostmeta(Postmeta_table $postmeta, $row) {
 
         try {
-            $post->setId(utf8_encode($row['ID']));
+            $postmeta->setId(utf8_encode($row['meta_id']));
         } catch (Exception $ex) {
             
         }
 
         try {
-            $post->setPost_title(utf8_encode($row['post_title']));
+            $postmeta->setPost_id(utf8_encode($row['post_id']));
         } catch (Exception $ex) {
             
         }
 
         try {
-            $post->setGui(utf8_encode($row['guid']));
+            $postmeta->setMeta_key(utf8_encode($row['meta_key']));
         } catch (Exception $ex) {
             
         }
 
         try {
-            $post->setPost_content(utf8_encode($row['post_content']));
-        } catch (Exception $exc) {
+            $postmeta->setMeta_value(utf8_encode($row['meta_value']));
+        } catch (Exception $ex) {
             
         }
 
-        try {
-            $post->setPost_date(utf8_encode($row['post_date']));
-        } catch (Exception $exc) {
-            
-        }
-
-        try {
-            $post->setPost_author(utf8_encode($row['post_author']));
-        } catch (Exception $exc) {
-            
-        }
-
-        try {
-            $post->setPost_modified(utf8_encode($row['post_modified']));
-        } catch (Exception $exc) {
-            
-        }
-
-        try {
-            $post->setPost_name(utf8_encode($row['post_name']));
-        } catch (Exception $exc) {
-            
-        }
-
-        return $post;
+        return $postmeta;
     }
 
 }

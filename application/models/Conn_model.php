@@ -19,7 +19,7 @@ class Conn_model extends CI_Model {
 
     /**
      * Funcion: Conexion   
-     * Descripcion: Genera la conexion con el motor de datos MySQL
+     * Descripcion: Genera la conexion con el motor de datos MySQL (mysqli)
      * @return $link
      * @author Rodrigo Contreras B. <rodrigo.rcb@gmail.com>
      * @version 2016-02-08
@@ -27,7 +27,8 @@ class Conn_model extends CI_Model {
      */
     function Conexion() {
 
-        $link = mysqli_connect("localhost", "root", "zxcvbn", "wordpress");
+        $link = mysqli_connect("localhost", "root", "", "wordpress");
+        //$link = mysqli_connect("localhost", "root", "zxcvbn", "wordpress");
         mysqli_select_db($link, 'wordpress');
 
         return $link;
