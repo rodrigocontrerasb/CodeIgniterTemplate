@@ -23,7 +23,11 @@ class Posts extends CI_Controller {
      * @since 2016-02-24
      */
     public function index() {
-        $this->load->view('posts/index');
+
+        // Load Vista
+        //$this->load->view('posts/index');
+        // Redireccion a carpeta web
+        header('Location: ./web');
     }
 
     /**

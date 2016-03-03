@@ -32,7 +32,7 @@ class Posts_model extends CI_Model {
         //$ssql = "select * from wp_posts where post_status = 'publish' and post_type = 'post' order by id desc";
 
 
-        $ssql = "select 
+        /*$ssql = "select 
             ID, 
             post_title, 
             guid,
@@ -48,7 +48,29 @@ class Posts_model extends CI_Model {
             on wp_posts.ID = wp_term_relationships.object_id 
             where post_status = 'publish' 
             and post_type = 'post' and 
-            term_taxonomy_id = " . $id_tax . " order by id desc";
+            term_taxonomy_id = " . $id_tax . " order by id desc";*/
+
+
+        $ssql = "select 
+            wp_posts.ID, 
+            wp_posts.post_title, 
+            wp_posts.guid,
+            wp_posts.post_content, 
+            wp_posts.post_date, 
+            wp_posts.post_author, 
+            wp_posts.post_modified, 
+            wp_posts.post_name, 
+            wp_term_relationships.object_id, 
+            wp_term_relationships.term_taxonomy_id,
+            wp_users.display_name 
+            from wp_posts 
+            left join wp_term_relationships 
+            on wp_posts.ID = wp_term_relationships.object_id 
+            left join wp_users
+            on wp_posts.post_author = wp_users.ID
+            where wp_posts.post_status = 'publish' 
+            and wp_posts.post_type = 'post' and 
+            wp_term_relationships.term_taxonomy_id = " . $id_tax . " order by wp_posts.id desc";
 
 
         // Ejecucion Consulta
@@ -174,6 +196,13 @@ class Posts_model extends CI_Model {
         } catch (Exception $exc) {
             
         }
+        
+        try {
+            $post->setDisplay_name(utf8_encode($row['display_name']));
+        } catch (Exception $exc) {
+            
+        }
+        
 
         return $post;
     }

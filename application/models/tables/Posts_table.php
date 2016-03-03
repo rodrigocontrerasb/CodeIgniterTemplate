@@ -22,6 +22,9 @@ class Posts_table extends CI_Model {
     public $post_name = null;
     public $gui = null;
     public $meta = null;
+    
+    // Adicionales
+    public $display_name;
 
     // Getters
     function getId() {
@@ -60,6 +63,10 @@ class Posts_table extends CI_Model {
         return $this->meta;
     }
 
+    function getDisplay_name() {
+        return $this->display_name;
+    }
+
     // Setters
     function setId($id) {
         $this->id = $id;
@@ -95,6 +102,10 @@ class Posts_table extends CI_Model {
 
     function setMeta($meta) {
         $this->meta = $meta;
+    }
+
+    function setDisplay_name($display_name) {
+        $this->display_name = $display_name;
     }
 
 }
