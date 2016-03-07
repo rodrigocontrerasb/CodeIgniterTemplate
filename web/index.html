@@ -2,9 +2,36 @@
 <html>
     <head>
         <!-- Title / Meta -->
-        <title>Aplicación</title>
+        <title>MiComunidad v1.0</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <meta name="author" content="MiComunidad" />
+        <meta name="organization" content="MiComunidad" />
+        <meta name="locality" content="Valparaiso, Chile" />
+        <meta name="classification" content="General" />
+        <meta name="language" content="Spanish" />
+        <meta name="lang" content="es" />
+        <meta name="robots" content="index,follow" />
+        <meta name="generator" content="MiComunidad" />
+        <link rel="alternate" type="application/rss+xml" href="" title="RSS" />
+        <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicon//apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="favicon/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png">
+        <meta name="theme-color" content="#c41425">
 
         <!-- Fonts / Css -->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,11 +48,17 @@
     </head>
 
     <body>
+
+        <script>
+            var idPagina = 'index';
+        </script>
+
         <!-- NavBar -->
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#!" class="left brand-logo" style="font-size: 18px;">Mi Comunidad</a>
+                    <!--<div style="height: 20px; background-color:#b60e1b"></div>-->
+                    <a href="#!" class="left brand-logo" style="font-size: 18px;"><img src="img/logo.png" style="width: 150px"></a>
                     <ul class="right _hide-on-med-and-down">
                         <li><a href="#" id="btn_recargar"><i class="material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Recargar">refresh</i></a></li>
                         <li><a href="#" class="modal-trigger"><i class="mdi-action-perm-identity tooltipped" data-position="bottom" data-delay="50" data-tooltip="Mi Perfil"></i></a></li>
@@ -37,13 +70,14 @@
 
         <!-- Tabs -->
         <div class="row">
-            <div class="col s12 m3 l2">
+
+            <div class="col s12 m3 l2 tabs_sitio">
                 <ul class="tabs">
                     <li class="tab col s3"><a id="tab_1" href="#contenido1" class="active">Noticias</a></li>
                     <li class="tab col s3"><a id="tab_2" href="#contenido2">Funcionarios</a></li>
                     <li class="tab col s3"><a id="tab_3" href="#contenido3">Residentes</a></li>
                     <li class="tab col s3"><a id="tab_4" href="#contenido4">Comunidad</a></li>
-                    <li class="tab col s3"><a id="tab_5" href="#contenido5">Acerca de</a></li>
+                    <!--<li class="tab col s3"><a id="tab_5" href="#contenido5">Acerca de</a></li>-->
                 </ul>
             </div>
 
@@ -59,9 +93,10 @@
 
         </div>
 
+
         <!-- Barra Lateral Desplegable -->
         <ul id="slide-out" class="side-nav">
-            <li class="orange titular"><strong>Opciones</strong></li>
+            <li class="titular opciones"><img src="img/logo.png" style="width: 150px"></li>
             <li><a href="#" id="lat_1"><i class="material-icons" style="display: inline">live_help</i> Ayuda</a></li>
             <li><a href="#" id="lat_2"><i class="mdi-action-perm-identity" style="display: inline"></i> Mi Perfil</a></li>
             <li><a href="login.html" id="lat_3"><i class="material-icons" style="display: inline">settings_power</i> Cerrar Sesión</a></li>

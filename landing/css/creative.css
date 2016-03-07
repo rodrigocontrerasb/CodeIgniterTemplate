@@ -4,6 +4,22 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+#mainNav {
+    background-color: #c41325;
+    
+}
+
+#mainNav li a {
+    color: white;
+}
+
+header .header-content .header-content-inner p {
+        
+
+        background-color: rgba(0, 0, 0, 0.62);
+        padding: 10px;
+    }
+
 html,
 body {
     width: 100%;
@@ -18,6 +34,8 @@ hr {
     max-width: 50px;
     border-color: #f05f40;
     border-width: 3px;
+
+    border-color: #c41325;
 }
 
 hr.light {
@@ -25,10 +43,11 @@ hr.light {
 }
 
 a {
-    color: #f05f40;
+    /*color: #f05f40;*/
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    color: #c41325;
 }
 
 a:hover,
@@ -52,7 +71,8 @@ p {
 }
 
 .bg-primary {
-    background-color: #f05f40;
+    /*background-color: #f05f40;*/
+    background-color: #c41325;
 }
 
 .bg-dark {
@@ -124,8 +144,9 @@ aside {
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
-        background-color: transparent;
-        background-color: rgba(240, 95, 64, 0.9);
+        /*background-color: transparent;
+        background-color: rgba(240, 95, 64, 0.9);*/
+        background-color: #c41325;
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -197,8 +218,11 @@ header .header-content {
 header .header-content .header-content-inner h1 {
     margin-top: 0;
     margin-bottom: 0;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-weight: 700;
+
+    text-shadow: 1px 1px 4px black;
+
 }
 
 header .header-content .header-content-inner hr {
@@ -237,6 +261,7 @@ header .header-content .header-content-inner p {
         margin-left: auto;
         max-width: 80%;
         font-size: 18px;
+
     }
 }
 
@@ -324,7 +349,8 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #f05f40;
+    /*color: #f05f40;*/
+    color:#c41325;
 }
 
 .no-gutter > [class*=col-] {
@@ -388,10 +414,13 @@ fieldset[disabled] .btn-default.active {
 .btn-primary {
     border-color: #f05f40;
     color: #fff;
-    background-color: #f05f40;
+    /*background-color: #f05f40;*/
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+
+    background-color: #c41325;
+    border-color: #c41325;
 }
 
 .btn-primary:hover,

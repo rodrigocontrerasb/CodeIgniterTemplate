@@ -6,62 +6,45 @@
  * Made By MaterializeCSS.com
  */
 
-.icon-block {
-    padding: 0 15px;
-}
-.icon-block .material-icons {
-    font-size: inherit;
+.nav-wrapper a.brand-logo {
+    margin-top: 4px;
 }
 
-
-// New -------------------------------------------------------------------------
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+    background-color: #F2F2F2;
 }
 
-main {
-    flex: 1 0 auto;
+video {
+    width: 100%;
+    height: 100%;
 }
 
-ul.collection, ul.collapsible {
-    margin-top: 0px;
-    margin-bottom: 0px;
+.tabs .tab a {
+    color: #c41325;
 }
 
-footer.page-footer {
-    margin-top: 0px;
-}    
-
-.row {
-    margin-bottom: 0px;
+nav {
+    background-color: #c41325;
 }
 
-// Imagenes de Noticias al 100%
-.collapsible-body img {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.side-nav li {
-    padding: 0px;
-}
-
-#slide-out .titular {
-    padding-left: 20px !important;
+.opciones {
+    color: white;
+    background-color: rgb(46, 50, 64);
 }
 
 
 /* Solo Celular ------------------------------------------------------------- */
 @media (max-width:600px) {
 
-    .row .col {
-        padding: 0px;
-    }    
+    .tabs_sitio {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
 
-    .col.s12.m8.l10 {
-        margin-top: -7px;
+    ul.collapsible, ul.collection {
+        margin-top: 0px;
+        margin-left: -21px;
+        margin-right: -21px;
     }
 
 }
@@ -70,27 +53,34 @@ footer.page-footer {
 /* Mayores que Celular ------------------------------------------------------ */
 @media (min-width:601px) {
 
-    .active {
-
+    .button-collapse {
+        display: inline !important;
     }
 
-    .row .col.s3 {
+    ul.tabs {
+        display: initial !important;
+    }
+
+    .tabs li {
         width: 100% !important;
-        text-align: left;
-        padding-left: 30px;
+        float: left !important;
+        text-align: left !important;
+        margin-left: 20px !important;
+
     }
 
-    .tabs {
-        display: inline;
+    .tabs_sitio {
+        margin-top: 15px !important;
     }
 
-    .col.s12.m9.l10 {
-        margin-top: 10px;
+    .indicator {
+        display: none;
     }
 
-    .nav-wrapper a {
-        margin-left: 20px;
+    .nav-wrapper a.brand-logo {
+        margin-left: 30px;
     }
+
 }
 
 
@@ -98,9 +88,10 @@ footer.page-footer {
 @media (min-width:992px) {
 
 
-    .button-collapse {
-        display: inline !important;
-    }
-
 
 }
+
+
+
+
+

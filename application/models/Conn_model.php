@@ -30,7 +30,21 @@ class Conn_model extends CI_Model {
         $link = mysqli_connect("localhost", "root", "", "wordpress");
         //$link = mysqli_connect("localhost", "root", "zxcvbn", "wordpress");
         mysqli_select_db($link, 'wordpress');
+        return $link;
+    }
 
+    /**
+     * Funcion: ConexionComunidad   
+     * Descripcion: Genera la conexion con el motor de datos MySQL (mysqli)
+     * @return $link
+     * @author Rodrigo Contreras B. <rodrigo.rcb@gmail.com>
+     * @version 2016-03-07
+     * @since 2016-03-07
+     */
+    function ConexionComunidad() {
+        $link = mysqli_connect("localhost", "root", "", "micomunidad");
+        //$link = mysqli_connect("localhost", "root", "zxcvbn", "wordpress");
+        mysqli_select_db($link, 'tb_comunidad');
         return $link;
     }
 

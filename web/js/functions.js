@@ -8,6 +8,7 @@
 
 // API Servidor
 var API_URL = 'http://localhost/codeigniter/index.php';
+//var API_URL = 'http://192.168.1.34/codeigniter/index.php';
 
 // API Servicios
 var API_NOTICIAS = API_URL + '/posts/listarposts/2';
@@ -17,23 +18,33 @@ var API_COMUNIDAD = API_URL + '/posts/listarposts/5';
 var API_ACERCA = API_URL + '/posts/listarposts/6';
 
 
+// API Comunidad
+var API_COMUNIDADES = API_URL + '/comunidad/listarComunidades';
+
+
 // Llamados de Funciones -------------------------------------------------------
 
 // Llamados Automaticos
-getContenidoTab1('#contenido1');
+if (idPagina == 'index') {
+    getContenidoTab1('#contenido1');
 
-// Listeners Tabs
-clickTab1('#tab_1', '#contenido1');
-clickTab2('#tab_2', '#contenido2');
-clickTab3('#tab_3', '#contenido3');
-clickTab4('#tab_4', '#contenido4');
-clickTab5('#tab_5', '#contenido5');
+    // Listeners Tabs
+    clickTab1('#tab_1', '#contenido1');
+    clickTab2('#tab_2', '#contenido2');
+    clickTab3('#tab_3', '#contenido3');
+    clickTab4('#tab_4', '#contenido4');
+    clickTab5('#tab_5', '#contenido5');
 
-// Listener Laterales
-clickLat1('#lat_1', '#contenido6');
+    // Listener Laterales
+    clickLat1('#lat_1', '#contenido6');
 
-// Listeners Botones Superiores
-clickBtnRecargar('#btn_recargar');
+    // Listeners Botones Superiores
+    clickBtnRecargar('#btn_recargar');
+}
+
+if (idPagina == 'login') {
+    getComunidades();
+}
 
 
 // Listeners Tabs --------------------------------------------------------------
@@ -341,5 +352,23 @@ function getContenidoTab5(container) {
 
         $(container).html(salida);
         Materialize.fadeInImage(container);
+    });
+}
+
+
+function getComunidades() {
+
+    var URL_SERVICIO = API_COMUNIDADES;
+    $.getJSON(URL_SERVICIO, function (data) {
+
+        salida = "";
+        salida = salida + '<option value="" disabled selected>-- Seleccione Comunidad</option>';
+        $.each(data, function (key, val) {
+            salida = salida + '<option value="' + data[key].id + '">' + data[key].nombre + '</option>';
+        });
+
+        // Salida & Despliegue
+        $('#l_comunidades').html(salida);
+        $('select').material_select();
     });
 }
